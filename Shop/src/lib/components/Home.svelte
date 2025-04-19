@@ -20,12 +20,23 @@
           { id: 4, name: "Sports", icon: "⚽", count: 47 }
         ];
         
+
+
         featuredProducts = [
           { id: 1, name: "Écouteurs sans fil", price: 89.99, rating: 4.8, reviews: 124, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg", discount: 15 },
-          { id: 2, name: "Montre connectée", price: 159.99, rating: 4.5, reviews: 98, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg" },
-          { id: 3, name: "Sac à dos urbain", price: 49.99, rating: 4.7, reviews: 67, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg", discount: 20 },
-          { id: 4, name: "Haut-parleur portable", price: 79.99, rating: 4.6, reviews: 142, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg" }
+          { id: 2, name: "Montre connectée", price: 159.99, rating: 4.5, reviews: 98, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/acd64e8b-426b-4468-b6c6-5fccd3a64d0a-1_83c94cf4-a9da-4a56-a417-9c8c801899fb.jpg" },
+          { id: 3, name: "Sac à dos urbain", price: 49.99, rating: 4.7, reviews: 67, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/ba089b01-b907-40b3-8f71-6017c78aa316-1_53c4be26-80e4-4a2c-bc74-123a6f0f4450.jpg", discount: 20 },
+          { id: 4, name: "Haut-parleur portable", price: 79.99, rating: 4.6, reviews: 142, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/5078a71a-4d70-46c9-9cc4-17a85a6d183f-1_294aa754-e3ba-4a06-bb5c-c4646cf30b2b.jpg" },
+          { id: 5, name: "Clavier mécanique RGB", price: 129.90, rating: 4.9, reviews: 203, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/12df4f06-a16b-4156-a0f1-51f7614b687e-1_5fc3f3e4-5efb-48a0-9284-b4d01a26e379.jpg", discount: 10 },
+          { id: 6, name: "Caméra de surveillance", price: 99.00, rating: 4.3, reviews: 88, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/943399d9-98dd-4c0f-89a9-cae385ef0a6a-1_e46dfa6b-cdfe-4cc8-a1b0-bb2b39fb357a.jpg" },
+          { id: 7, name: "Casque audio Bluetooth", price: 149.00, rating: 4.7, reviews: 178, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg", discount: 25 },
+          { id: 8, name: "Station de charge sans fil", price: 39.99, rating: 4.4, reviews: 56, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg" },
+          { id: 9, name: "Support pour ordinateur", price: 29.99, rating: 4.6, reviews: 112, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg" },
+          { id: 10, name: "Batterie externe 20 000mAh", price: 45.00, rating: 4.8, reviews: 134, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg", discount: 30 },
+          { id: 11, name: "Lampe LED de bureau", price: 24.90, rating: 4.2, reviews: 39, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg" },
+          { id: 12, name: "Souris ergonomique", price: 34.99, rating: 4.5, reviews: 71, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg" }
         ];
+
         
         promotions = [
           { id: 1, title: "Offres d'été", description: "Jusqu'à 40% de réduction", color: "promo-blue" },

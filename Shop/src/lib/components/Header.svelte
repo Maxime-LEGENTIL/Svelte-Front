@@ -1,88 +1,87 @@
 <script>
-    import { onMount } from 'svelte';
-    import Cookie from './Cookie.svelte';
-    
-    // État pour contrôler le menu mobile
-    let mobileMenuOpen = false;
-    
-    // Nombre d'articles dans le panier (sera connecté plus tard)
-    let itemCount = 2; // Valeur d'exemple
-    
-    // Fonction pour basculer le menu mobile
-    function toggleMobileMenu() {
-      mobileMenuOpen = !mobileMenuOpen;
-    }
-    
-    // Fermer le menu mobile si la fenêtre est redimensionnée
-    onMount(() => {
-      const handleResize = () => {
-        if (window.innerWidth > 768 && mobileMenuOpen) {
-          mobileMenuOpen = false;
-        }
-      };
-      
-      window.addEventListener('resize', handleResize);
-      
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    });
-    
-    // Navigation simplifiée pour l'instant
-    function navigate(route) {
-      console.log(`Navigation vers ${route}`);
-      // Fermer le menu mobile après navigation
-      mobileMenuOpen = false;
-    }
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation'; // Utiliser goto de SvelteKit au lieu de navigate
+  import Cookie from './Cookie.svelte';
 
-    let showAccountMenu = false;
-let showFavoritesMenu = false;
-let showCartMenu = false;
+  // État pour contrôler le menu mobile
+  let mobileMenuOpen = false;
 
-// Gestion du clic en dehors
-function closeAllMenus() {
-  showAccountMenu = false;
-  showFavoritesMenu = false;
-  showCartMenu = false;
-}
+  // Nombre d'articles dans le panier
+  let itemCount = 2; // Exemple
 
-function toggleMenu(menu) {
-  closeAllMenus();
-  if (menu === 'account') showAccountMenu = !showAccountMenu;
-  if (menu === 'favorites') showFavoritesMenu = !showFavoritesMenu;
-  if (menu === 'cart') showCartMenu = !showCartMenu;
-}
+  // Toggle du menu mobile
+  function toggleMobileMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+  }
 
-  </script>
-  
-  <header class="header">
-    <div class="header-container">
-      <!-- Logo -->
-      <div class="logo">
-        <a href="/" on:click|preventDefault={() => navigate('/')}>
-          <h1>BackMarket</h1>
-        </a>
-      </div>
-      
-      <!-- Menu burger pour mobile -->
-      <button class="mobile-menu-toggle" on:click={toggleMobileMenu} aria-label="Menu">
-        <span class="burger-icon" class:open={mobileMenuOpen}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
-      
-      <!-- Navigation et actions utilisateur -->
-      <div class="nav-actions-container" class:open={mobileMenuOpen}>
-        <!-- Navigation principale -->
-        <nav class="main-nav">
-          <ul>
-            <li><a href="/club" on:click|preventDefault={() => navigate('/club')} class="nav-link">Le Club</a></li>
-            <li><a href="/promotions" on:click|preventDefault={() => navigate('/promotions')} class="nav-link">Promotions</a></li>
-            <li><a href="/faq" on:click|preventDefault={() => navigate('/faq')} class="nav-link">Besoin d'aide ?</a></li>
-          </ul>
-        </nav>
+  // Fermer le menu mobile si la fenêtre est redimensionnée
+  onMount(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && mobileMenuOpen) {
+        mobileMenuOpen = false;
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+
+  // Navigation via SvelteKit
+  function goTo(route) {
+    goto(route); // Utiliser goto au lieu de navigate
+    mobileMenuOpen = false;
+  }
+
+  // Menus (compte, favoris, panier)
+  let showAccountMenu = false;
+  let showFavoritesMenu = false;
+  let showCartMenu = false;
+
+  function closeAllMenus() {
+    showAccountMenu = false;
+    showFavoritesMenu = false;
+    showCartMenu = false;
+  }
+
+  function toggleMenu(menu) {
+    closeAllMenus();
+    if (menu === 'account') showAccountMenu = !showAccountMenu;
+    if (menu === 'favorites') showFavoritesMenu = !showFavoritesMenu;
+    if (menu === 'cart') showCartMenu = !showCartMenu;
+  }
+</script>
+
+<header class="header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="/" on:click|preventDefault={() => goTo('/')}>
+        <h1>BackMarket</h1>
+      </a>
+    </div>
+    
+    <!-- Menu burger pour mobile -->
+    <button class="mobile-menu-toggle" on:click={toggleMobileMenu} aria-label="Menu">
+      <span class="burger-icon" class:open={mobileMenuOpen}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    
+    <!-- Navigation et actions utilisateur -->
+    <div class="nav-actions-container" class:open={mobileMenuOpen}>
+      <!-- Navigation principale -->
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/category" on:click|preventDefault={() => goTo('/category')} class="nav-link">Le Club</a></li>
+          <li><a href="/promotions" on:click|preventDefault={() => goTo('/promotions')} class="nav-link">Promotions</a></li>
+          <li><a href="/faq" on:click|preventDefault={() => goTo('/faq')} class="nav-link">Besoin d'aide ?</a></li>
+        </ul>
+      </nav>
         
         <!-- Barre de recherche -->
         <div class="search-container">

@@ -75,10 +75,15 @@
     <!-- Hero Section avec recherche -->
 <!-- Hero Section avec recherche -->
 <div class="hero-section" in:fly={{ y: 20, duration: 500 }}>
-  <div class="hero-background">
-    <img src="https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D1920/https://images.ctfassets.net/mmeshd7gafk1/6YX1zW1eca6fORntCE46gS/ef52874d765b5b9f941c7f294d2c52d2/WEB___Home_Page_-_Top_Slider_-_desktop-FR.jpg" alt="Hero image">
-  </div>
-  </div>
+  <a href="/category" class="hero-link">
+    <img
+      src="https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D1920/https://images.ctfassets.net/mmeshd7gafk1/4ckNwYhbq9viSKvv1lK7W7/8181c490b8f45f3e01ef29977f0f318e/DN2025W1_HP_Banners_Desktop_Laptop_FR.jpg"
+      alt="Hero image"
+      class="hero-image"
+    />
+  </a>
+</div>
+
     
     <!-- Catégories populaires -->
     <section class="categories-section" in:fly={{ y: 20, duration: 600, delay: 100 }}>
@@ -219,68 +224,28 @@
 
 <style>
   /* Hero Section */
-.hero-section {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 40px;
-  margin-top: 40px;
-}
-
-.hero-background {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.hero-background img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.hero-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 40px;
-  color: white;
-  background: rgba(0, 0, 0, 0.4); /* Ajout d'un overlay pour améliorer la lisibilité du texte */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  max-width: 600px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.hero-subtitle {
-  font-size: 1.125rem;
-  margin-bottom: 24px;
-  max-width: 500px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 20px;
+  .hero-section {
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
-  
-  .hero-content h1 {
-    font-size: 1.8rem;
+
+  .hero-link {
+    display: block;
   }
-  
-  .hero-subtitle {
-    font-size: 1rem;
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
   }
-}
+
+  .hero-image:hover {
+    opacity: 0.9;
+  }
+
   /* Styles généraux */
   .container {
     max-width: 1200px;

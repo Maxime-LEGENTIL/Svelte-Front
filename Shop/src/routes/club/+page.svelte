@@ -1,9 +1,9 @@
 <script>
     import Header from "$lib/components/Header/Header.svelte";
+    import Club from "$lib/components/Club.svelte";
     import Footer from "$lib/components/Footer.svelte";
-    import PageNotFound from "$lib/components/PageNotFound.svelte";
 </script>
 
 <Header></Header>
-<PageNotFound></PageNotFound>
+<Club></Club>
 <Footer></Footer>

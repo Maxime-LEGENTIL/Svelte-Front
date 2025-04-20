@@ -1,6 +1,8 @@
 <script>
     import { onMount } from 'svelte';
     import { fade, fly } from 'svelte/transition';
+    import Banner from './Banner.svelte';
+    import PopularCategories from './PopularCategories.svelte';
 
     // État du composant
     let searchTerm = '';
@@ -13,15 +15,6 @@
       // Simulation de chargement des données depuis votre API Laravel
       // À remplacer par vos appels API réels
       setTimeout(() => {
-        categories = [
-          { id: 1, name: "Électronique", icon: "💻", count: 120 },
-          { id: 2, name: "Mode", icon: "👕", count: 85 },
-          { id: 3, name: "Maison", icon: "🏠", count: 64 },
-          { id: 4, name: "Sports", icon: "⚽", count: 47 }
-        ];
-        
-
-
         featuredProducts = [
           { id: 1, name: "Écouteurs sans fil", price: 89.99, rating: 4.8, reviews: 124, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/1e682053-382f-4cd5-bccf-63ed65067c30-1_b9017777-1390-4072-b865-a6a4ea41713a.jpg", discount: 15 },
           { id: 2, name: "Montre connectée", price: 159.99, rating: 4.5, reviews: 98, image: "https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/acd64e8b-426b-4468-b6c6-5fccd3a64d0a-1_83c94cf4-a9da-4a56-a417-9c8c801899fb.jpg" },
@@ -72,41 +65,13 @@
       </div>
     </div>
   {:else}
-    <!-- Hero Section avec recherche -->
-<!-- Hero Section avec recherche -->
-<div class="hero-section" in:fly={{ y: 20, duration: 500 }}>
-  <a href="/category" class="hero-link">
-    <img
-      src="https://www.backmarket.fr/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D1920/https://images.ctfassets.net/mmeshd7gafk1/4ckNwYhbq9viSKvv1lK7W7/8181c490b8f45f3e01ef29977f0f318e/DN2025W1_HP_Banners_Desktop_Laptop_FR.jpg"
-      alt="Hero image"
-      class="hero-image"
-    />
-  </a>
-</div>
+    <Banner></Banner>
 
-    
-    <!-- Catégories populaires -->
-    <section class="categories-section" in:fly={{ y: 20, duration: 600, delay: 100 }}>
-      <div class="section-header">
-        <h2>Recommandé pour vous</h2>
-        <button class="link-button">
-          Toutes les catégories <span class="arrow-icon">→</span>
-        </button>
-      </div>
-      
-      <div class="categories-grid">
-        {#each categories as category (category.id)}
-          <div class="category-card">
-            <div class="category-icon">{category.icon}</div>
-            <h3 class="category-title">{category.name}</h3>
-            <p class="category-count">{category.count} produits</p>
-          </div>
-        {/each}
-      </div>
-    </section>
+        
+    <PopularCategories></PopularCategories>
     
     <!-- Promotions -->
-    <section class="promotions-section" in:fly={{ y: 20, duration: 700, delay: 200 }}>
+    <!--<section class="promotions-section" in:fly={{ y: 20, duration: 700, delay: 200 }}>
       <div class="promotions-grid">
         {#each promotions as promo (promo.id)}
           <div class="promo-card {promo.color}">
@@ -118,7 +83,7 @@
           </div>
         {/each}
       </div>
-    </section>
+    </section>-->
     
     <!-- Produits en vedette -->
     <section class="products-section" in:fly={{ y: 20, duration: 800, delay: 300 }}>
@@ -223,29 +188,6 @@
 </div>
 
 <style>
-  /* Hero Section */
-  .hero-section {
-    overflow: hidden;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .hero-link {
-    display: block;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-  }
-
-  .hero-image:hover {
-    opacity: 0.9;
-  }
-
   /* Styles généraux */
   .container {
     max-width: 1200px;
@@ -253,11 +195,6 @@
     padding: 0 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
-  }
-
-  h1, h2, h3 {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
   }
 
   section {
@@ -313,59 +250,6 @@
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  /* Hero Section */
-  
-
-  .search-form {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-width: 500px;
-  }
-
-  @media (min-width: 768px) {
-    .search-form {
-      flex-direction: row;
-    }
-  }
-
-  .search-input-container {
-    position: relative;
-    flex-grow: 1;
-  }
-
-  .search-input {
-    width: 100%;
-    padding: 12px 12px 12px 40px;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
-  }
-
-  .search-icon {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    color: #9ca3af;
-  }
-
-  .search-button {
-    background-color: #ff5a5f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .search-button:hover {
-    background-color: #ff5a5f;
-  }
-
   /* Section Headers */
   .section-header {
     display: flex;
@@ -398,113 +282,6 @@
     margin-left: 4px;
   }
 
-  /* Categories Section */
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  @media (min-width: 768px) {
-    .categories-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .category-card {
-    background-color: white;
-    border-radius: 12px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s;
-    cursor: pointer;
-  }
-
-  .category-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ff5a5f;
-  }
-
-  .category-icon {
-    font-size: 2rem;
-    margin-bottom: 8px;
-  }
-
-  .category-title {
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  .category-count {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin: 0;
-  }
-
-  /* Promotions Section */
-  .promotions-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  @media (min-width: 768px) {
-    .promotions-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .promo-card {
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s;
-    cursor: pointer;
-  }
-
-  .promo-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ff5a5f;
-  }
-
-  .promo-blue {
-    background-color: #dbeafe;
-  }
-
-  .promo-green {
-    background-color: #dcfce7;
-  }
-
-  .promo-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .promo-description {
-    margin-bottom: 12px;
-  }
-
-  .promo-link {
-    color: #ff5a5f;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    transition: color 0.2s;
-  }
-
-  .promo-link:hover {
-    color: #ff5a5f;
-  }
-
   /* Products Section */
   .products-grid {
     display: grid;
@@ -530,6 +307,7 @@
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s;
+    border: 1px solid transparent;
   }
 
   .product-card:hover {
